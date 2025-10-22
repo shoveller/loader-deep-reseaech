@@ -1,6 +1,6 @@
 # react router 의 loader , HydrateFallback, Await  사용법
 
-## loader 의 라우팅 기능
+## `loader` 의 라우팅 기능
 - react router 의 `loader` 는 패치한 서버사이드 데이터에 따라 라우팅을 제어한다
 - 라우팅을 제어하는 기능만큼은 그 어떤 라이브러리도 따라올 수 없다.
     - loader 를 사용하지 않는 라우팅 트랩은 이렇게 만든다.
@@ -31,7 +31,7 @@ export const loader: LoaderFunction = ({ request }) => {
 }
 ```
 
-## loader 의 데이터 로드 기능과 HydrateFallback 의 한계
+## `loader` 의 데이터 로드 기능과 `HydrateFallback` 의 한계
 - `loader` 는 데이터를 패치하는 동안 UI 렌더링을 멈춘다.
 - `loader` 가 불러온 데이터를 클라이언트가 소비하는 순간 서버사이드의 데이터를 기반으로 서버사이드에서 컴포넌트가 렌더링된다.
     - 따라서 이 기간은 하이드레이션 기간이 되며 `HydrateFallback` 이 대체 UI로 표시된다.
@@ -71,7 +71,7 @@ export const loader = async () => {
 }
 ```
 
-## <Await /> 으로 비동기 데이터 렌더링
+## `<Await />` 으로 비동기 데이터 렌더링
 - `loader` 가 비동기 데이터를 반환힐때 `<Await />` 이 활약한다.
     - 이 컴포넌트는 promise 가 `fullfilled` 상태가 될 때까지 기다리고 `<Supsense />` 에 대체 UI 렌더링을 위임한다.
     - react 19 의 use 를 대신 사용할 수 있지만, promise 를 throw 할 래퍼를 만들어야 하기 때문에 `<Await />` 을 사용하는게 더 좋다.
